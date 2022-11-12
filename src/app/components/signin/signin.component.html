@@ -1,1 +1,17 @@
-<h1>signin works!</h1>
+<div class="container mt-5">
+    <form [formGroup]="form" (ngSubmit)="login()">
+        <div class="mb-3">
+            <label class="form-label">Nombre de usuario</label>
+            <input type="text" class="form-control" formControlName="username">
+            <div class="form-text">No compartiremos tu información con nadie más.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Contraseña</label>
+            <input type="password" class="form-control" formControlName="password">
+        </div>
+        
+        <button type="submit" 
+        class="btn btn-primary"
+        [disabled]="!form.valid">Iniciar sesión</button>
+    </form>
+</div>
