@@ -13,6 +13,10 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { InterceptorInterceptor } from './interceptors/interceptor.interceptor';
 import { ErrorsInterceptor } from './interceptors/errors.interceptor';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +31,10 @@ import { ErrorsInterceptor } from './interceptors/errors.interceptor';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ButtonModule,
+    InputTextModule,
+    PasswordModule
   ],
   providers: [
     AuthService,

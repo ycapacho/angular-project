@@ -33,7 +33,10 @@
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/ngx-spinner/animations/ball-scale-multiple.css",
-              "node_modules/ngx-spinner/animations/ball-running-dots.css"
+              "node_modules/ngx-spinner/animations/ball-running-dots.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/md-light-indigo/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js"

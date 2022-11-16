@@ -1,17 +1,27 @@
 <div class="container mt-5">
     <form [formGroup]="form" (ngSubmit)="login()">
         <div class="mb-3">
-            <label class="form-label">Nombre de usuario</label>
-            <input type="text" class="form-control" formControlName="username">
-            <div class="form-text">No compartiremos tu información con nadie más.</div>
+            <div class="field">
+                <label class="block">Nombre de usuario</label>
+                <div>
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-user"></i>
+                        <input type="text" pInputText placeholder="Search" formControlName="username"/>
+                    </span>
+                </div>
+                <small class="block">No compartiremos tu información con nadie más.</small>
+            </div>
         </div>
         <div class="mb-3">
             <label class="form-label">Contraseña</label>
-            <input type="password" class="form-control" formControlName="password">
+            <div>
+                <p-password formControlName="password" [toggleMask]="true"></p-password>
+            </div>
         </div>
-        
-        <button type="submit" 
-        class="btn btn-primary"
-        [disabled]="!form.valid">Iniciar sesión</button>
+        <p-button 
+        label="Iniciar sesión"
+        [disabled]="!form.valid"
+        type="submit"
+        ></p-button>
     </form>
 </div>
