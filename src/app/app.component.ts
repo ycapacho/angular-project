@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.spinner.show();
+    // this.spinner.show();
     this.auth.autoLogin();
   }
 }
