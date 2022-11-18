@@ -16,13 +16,16 @@ import { ErrorsInterceptor } from './interceptors/errors.interceptor';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
+import { PartiesComponent } from './components/parties/parties.component';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
-    HomeComponent
+    HomeComponent,
+    PartiesComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { PasswordModule } from 'primeng/password';
     NgxSpinnerModule,
     ButtonModule,
     InputTextModule,
-    PasswordModule
+    PasswordModule,
+    TableModule
   ],
   providers: [
     AuthService,

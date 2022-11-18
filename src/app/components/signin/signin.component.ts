@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms'
+import { Validators, FormBuilder, FormGroup } from '@angular/forms'
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -11,12 +11,12 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SigninComponent implements OnInit {
 
   constructor(
-    private fb: UntypedFormBuilder,
+    private fb: FormBuilder,
     private auth: AuthService,
     private router: Router
   ) { }
 
-  form: UntypedFormGroup;
+  form: FormGroup;
 
   ngOnInit(): void {
     this.form = this.fb.group({
