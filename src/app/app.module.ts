@@ -18,6 +18,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { PartiesComponent } from './components/parties/parties.component';
 import { TableModule } from 'primeng/table';
+import { DialogModule } from 'primeng/dialog';
+import { PartyComponent } from './components/parties/party/party.component';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { TableModule } from 'primeng/table';
     AppComponent,
     SigninComponent,
     HomeComponent,
-    PartiesComponent
+    PartiesComponent,
+    PartyComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { TableModule } from 'primeng/table';
     ButtonModule,
     InputTextModule,
     PasswordModule,
-    TableModule
+    TableModule,
+    DialogModule
   ],
   providers: [
     AuthService,

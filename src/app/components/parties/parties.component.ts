@@ -14,6 +14,9 @@ export class PartiesComponent implements OnInit {
   ) { }
 
   parties: any[];
+  display = false;
+  idSelected: string;
+  isEditing = false;
 
   ngOnInit(): void {
     this.shared.getAll('parties').subscribe({
@@ -36,6 +39,12 @@ export class PartiesComponent implements OnInit {
         console.log(id);
       }
     })
+  }
+
+  showDialog(id: string, isEditing: boolean) {
+    this.idSelected = id;
+    this.isEditing = isEditing;
+    this.display = true;
   }
 
 }

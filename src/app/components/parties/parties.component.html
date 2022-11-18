@@ -1,29 +1,49 @@
-<h1>Partidos políticos</h1>
-<p-table [value]="parties" [paginator]="true" [rows]="2">
+<div class="container mt-5">
+    <h1>Partidos políticos</h1>
+    <p-table [value]="parties" [paginator]="true" [rows]="5">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Partido político</th>
+                <th>Acción</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-party>
+            <tr>
+                <td>{{party.name}}</td>
+                <td>
+                    <button 
+                    pButton 
+                    type="button" 
+                    class="p-button-info"
+                    style="margin-right: 5px;" 
+                    icon="pi pi-eye"
+                    (click)="showDialog(party._id, false)"></button>
+                    <button 
+                    pButton 
+                    type="button" 
+                    class="p-button-primary"
+                    style="margin-right: 5px;" 
+                    icon="pi pi-file-edit"
+                    (click)="showDialog(party._id, true)"></button>
+                    <button 
+                    pButton 
+                    type="button" 
+                    class="p-button-secondary" 
+                    icon="pi pi-trash"
+                    (click)="delete(party._id)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-dialog [(visible)]="display" [style]="{width: '60vw'}">
     <ng-template pTemplate="header">
-        <tr>
-            <th>Partido político</th>
-            <th>Acción</th>
-        </tr>
+        <h2>Información de partido político</h2>
     </ng-template>
-    <ng-template pTemplate="body" let-party>
-        <tr>
-            <td>{{party.name}}</td>
-            <td>
-                <button 
-                pButton 
-                type="button" 
-                class="p-button-primary"
-                style="margin-right: 5px;" 
-                icon="pi pi-file-edit"></button>
-                <button 
-                pButton 
-                type="button" 
-                class="p-button-secondary" 
-                icon="pi pi-trash"
-                (click)="delete(party._id)"></button>
-            </td>
-        </tr>
-    </ng-template>
-</p-table>
+    <app-party 
+    (closeModal)="display = false"
+    [id]="idSelected"
+    [isEditing]="isEditing"></app-party>
+</p-dialog>
 

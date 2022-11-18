@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-.p-inputtext {
+.p-inputtext,
+.p-password-panel,
+.p-password-meter,
+.p-password-info,
+.p-input-icon-left,
+.p-input-icon-right {
     width: 100%;
 }
