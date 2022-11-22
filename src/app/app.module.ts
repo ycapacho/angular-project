@@ -21,6 +21,12 @@ import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { PartyComponent } from './components/parties/party/party.component';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MenubarModule } from 'primeng/menubar';
+import { UsersComponent } from './components/users/users.component';
+import { ReportsComponent } from './components/reports/reports.component';
+import { StationsComponent } from './components/stations/stations.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 
 @NgModule({
@@ -29,7 +35,12 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
     SigninComponent,
     HomeComponent,
     PartiesComponent,
-    PartyComponent
+    PartyComponent,
+    NavbarComponent,
+    UsersComponent,
+    ReportsComponent,
+    StationsComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +55,8 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
     PasswordModule,
     TableModule,
     DialogModule,
-    DynamicDialogModule
+    DynamicDialogModule,
+    MenubarModule
   ],
   entryComponents: [
     PartyComponent
