@@ -20,6 +20,7 @@ import { PartiesComponent } from './components/parties/parties.component';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { PartyComponent } from './components/parties/party/party.component';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
 
 @NgModule({
@@ -42,8 +43,12 @@ import { PartyComponent } from './components/parties/party/party.component';
     InputTextModule,
     PasswordModule,
     TableModule,
-    DialogModule
+    DialogModule,
+    DynamicDialogModule
   ],
+  entryComponents: [
+    PartyComponent
+],
   providers: [
     AuthService,
     AuthGuardService,

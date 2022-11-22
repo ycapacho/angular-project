@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { DialogService } from 'primeng/dynamicdialog';
 import { SharedService } from 'src/app/services/shared.service';
 import Swal from 'sweetalert2';
+import { PartyComponent } from './party/party.component';
 
 @Component({
   selector: 'app-parties',
   templateUrl: './parties.component.html',
-  styleUrls: ['./parties.component.css']
+  styleUrls: ['./parties.component.css'],
+  providers: [DialogService]
 })
 export class PartiesComponent implements OnInit {
 
   constructor(
-    private shared: SharedService
+    private shared: SharedService,
+    public dialogService: DialogService
   ) { }
 
   parties: any[];
@@ -19,7 +23,7 @@ export class PartiesComponent implements OnInit {
   isEditing = false;
 
   ngOnInit(): void {
-    this.shared.getAll('parties').subscribe({
+    this.shared.get('parties').subscribe({
       next: ((response: any) => {
         this.parties = response.parties;
         console.log(this.parties);
@@ -42,9 +46,13 @@ export class PartiesComponent implements OnInit {
   }
 
   showDialog(id: string, isEditing: boolean) {
-    this.idSelected = id;
-    this.isEditing = isEditing;
-    this.display = true;
+    this.dialogService.open(PartyComponent, {
+      header: 'Lista de partidos políticos',
+      width: '70%',
+      data: {
+        id, isEditing
+      }
+    });
   }
 
 }
