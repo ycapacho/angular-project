@@ -1,15 +1,26 @@
 <div class="mt-5">
-    <h1>Partidos políticos</h1>
-    <p-table [value]="parties" [paginator]="true" [rows]="5">
+    <div style="position: relative;">
+        <h1>Candidatos</h1>
+        <button 
+        pButton 
+        type="button" 
+        class="p-button-primary create-button" 
+        icon="pi pi-user-plus"
+        (click)="create()"
+        >Crear</button>
+    </div>
+    <p-table [value]="candidates" [paginator]="true" [rows]="5">
         <ng-template pTemplate="header">
             <tr>
-                <th>Partido político</th>
+                <th>Nombre</th>
+                <th>Partido</th>
                 <th>Acción</th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-party>
+        <ng-template pTemplate="body" let-candidate>
             <tr>
-                <td>{{party.name}}</td>
+                <td>{{candidate.name}}</td>
+                <td>{{candidate?.party?.name}}</td>
                 <td>
                     <button 
                     pButton 
@@ -17,23 +28,24 @@
                     class="p-button-info"
                     style="margin-right: 5px;" 
                     icon="pi pi-eye"
-                    (click)="showDialog(party._id, false)"></button>
+                    (click)="showDialog(candidate._id, false)"></button>
                     <button 
                     pButton 
                     type="button" 
                     class="p-button-primary"
                     style="margin-right: 5px;" 
                     icon="pi pi-file-edit"
-                    (click)="showDialog(party._id, true)"></button>
+                    (click)="showDialog(candidate._id, true)"></button>
                     <button 
                     pButton 
                     type="button" 
                     class="p-button-secondary" 
                     icon="pi pi-trash"
-                    (click)="delete(party._id)"></button>
+                    (click)="delete(candidate._id)"></button>
                 </td>
             </tr>
         </ng-template>
     </p-table>
 </div>
+
 

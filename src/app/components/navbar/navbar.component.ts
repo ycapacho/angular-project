@@ -28,6 +28,11 @@ export class NavbarComponent implements OnInit {
           routerLink: '/parties'
       },
       {
+        label: 'Candidatos',
+        icon: 'pi pi-user',
+        routerLink: '/candidates'
+      },
+      {
         label: 'Resultados',
         icon: 'pi pi-chart-bar',
         routerLink: '/reports'

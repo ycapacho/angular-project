@@ -4,6 +4,7 @@
 .p-password-meter,
 .p-password-info,
 .p-input-icon-left,
-.p-input-icon-right {
+.p-input-icon-right,
+.p-dropdown {
     width: 100%;
 }

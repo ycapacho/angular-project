@@ -27,6 +27,9 @@ import { UsersComponent } from './components/users/users.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { StationsComponent } from './components/stations/stations.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { CandidatesComponent } from './components/candidates/candidates.component';
+import { NewCandidateComponent } from './components/candidates/new-candidate/new-candidate.component';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 @NgModule({
@@ -40,7 +43,9 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     UsersComponent,
     ReportsComponent,
     StationsComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    CandidatesComponent,
+    NewCandidateComponent
   ],
   imports: [
     BrowserModule,
@@ -56,10 +61,12 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     TableModule,
     DialogModule,
     DynamicDialogModule,
-    MenubarModule
+    MenubarModule,
+    DropdownModule
   ],
   entryComponents: [
-    PartyComponent
+    PartyComponent,
+    NewCandidateComponent
 ],
   providers: [
     AuthService,

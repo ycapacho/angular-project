@@ -1,0 +1,52 @@
+<div>
+    <form [formGroup]="form" (ngSubmit)="create()">
+        <div class="mb-3">
+            <div class="field">
+                <label class="block">partido político del candidato</label>
+                <div>
+                    <p-dropdown 
+                    [filter]="true"
+                    [options]="parties" 
+                    formControlName="party" 
+                    placeholder="Seleccione partido político"
+                    optionLabel="name"></p-dropdown>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="field">
+                <label class="block">Nombre del candidato</label>
+                <div>
+                    <input type="text"
+                    pInputText 
+                    placeholder="Nombre del candidato"
+                    formControlName="name"/>
+                </div>                
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="field">
+                <label class="block">Identificacion del candidato</label>
+                <div>
+                    <input type="text"
+                    pInputText 
+                    placeholder="Identificacion del candidato"
+                    formControlName="identification"/>
+                </div>                
+            </div>
+        </div>
+        <div style="text-align: right;">
+            <p-button 
+            label="Crear candidato"
+            [disabled]="form.invalid"
+            type="submit"
+            class="mr5"
+            ></p-button>
+            <p-button 
+            label="Cerrar"
+            type="button"
+            (click)="close()"
+            ></p-button>
+        </div>
+    </form>
+</div>
