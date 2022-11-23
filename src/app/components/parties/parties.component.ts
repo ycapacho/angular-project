@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService } from 'primeng/dynamicdialog';
 import { SharedService } from 'src/app/services/shared.service';
-import Swal from 'sweetalert2';
 import { PartyComponent } from './party/party.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-parties',
@@ -26,7 +26,6 @@ export class PartiesComponent implements OnInit {
     this.shared.get('parties').subscribe({
       next: ((response: any) => {
         this.parties = response.parties;
-        console.log(this.parties);
       })
     })
   }
@@ -46,11 +45,26 @@ export class PartiesComponent implements OnInit {
   }
 
   showDialog(id: string, isEditing: boolean) {
-    this.dialogService.open(PartyComponent, {
+    const ref = this.dialogService.open(PartyComponent, {
       header: 'Lista de partidos políticos',
       width: '70%',
       data: {
         id, isEditing
+      }
+    });
+
+    // actualización de lista de partido políticos
+    ref.onClose.subscribe((response: any) => {
+      if (response) {
+        Swal.fire({
+          title: `Ahora el partido político se llame ${response?.name || '--'}`,
+          showCancelButton: false,
+          confirmButtonText: 'Aceptar'
+        });
+        this.parties.map((party: any) => {
+          if (party._id == response.id) return { ...party, name: response.name };
+          return party;
+        })
       }
     });
   }

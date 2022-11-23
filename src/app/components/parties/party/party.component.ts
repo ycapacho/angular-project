@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { SharedService } from 'src/app/services/shared.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-party',
@@ -34,18 +33,6 @@ export class PartyComponent implements OnInit {
       })
     })
     if (this.form) this.form.get('name')[this.isEditing ? 'enable': 'disable']();
-
-    this.ref.onClose.subscribe({
-      next: ((response: any) => {
-        if (response) {
-          Swal.fire({
-            title: `Ahora el partido político se llame ${response?.name || '--'}`,
-            showCancelButton: false,
-            confirmButtonText: 'Aceptar'
-          });
-        }
-      })
-    })
   }
 
   onSubmit() {

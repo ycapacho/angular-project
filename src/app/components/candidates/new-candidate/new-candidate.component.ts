@@ -42,7 +42,7 @@ export class NewCandidateComponent implements OnInit {
     };
     this.shared.post('candidates', data).subscribe({
       next: ((response: any) => {
-        console.log(response);
+        this.ref.close(response);
       })
     })
   }
