@@ -2,13 +2,20 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="mb-3">
             <div class="field">
-                <label class="block">Nombre partido político</label>
+                <label class="block">Nombre Partido</label>
                 <div>
                     <input type="text"
                     pInputText 
-                    placeholder="nombre partido político"
+                    placeholder="Nombre"
                     formControlName="name"/>
-                </div>                
+                </div>
+                <label class="block">Lema Partido</label>
+                <div>
+                    <input type="text"
+                    pInputText 
+                    placeholder="Lema"
+                    formControlName="lema"/>
+                </div>               
             </div>
         </div>
         <div style="text-align: right;">

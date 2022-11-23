@@ -25,7 +25,7 @@ export class PartiesComponent implements OnInit {
   ngOnInit(): void {
     this.shared.get('parties').subscribe({
       next: ((response: any) => {
-        this.parties = response.parties;
+        this.parties = response
       })
     })
   }
@@ -46,7 +46,7 @@ export class PartiesComponent implements OnInit {
 
   showDialog(id: string, isEditing: boolean) {
     const ref = this.dialogService.open(PartyComponent, {
-      header: 'Lista de partidos políticos',
+      header: 'Detalle de Partido',
       width: '70%',
       data: {
         id, isEditing
@@ -62,7 +62,7 @@ export class PartiesComponent implements OnInit {
           confirmButtonText: 'Aceptar'
         });
         this.parties.map((party: any) => {
-          if (party._id == response.id) return { ...party, name: response.name };
+          if (party._id == response.id) return { ...party, name: response.nombre_partido };
           return party;
         })
       }

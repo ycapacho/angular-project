@@ -22,17 +22,20 @@ export class PartyComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: [null, Validators.required]
+      name: [null, Validators.required],
+      lema: [null, Validators.required]
     });
 
     const id = this.config.data.id;
     this.isEditing = this.config.data.isEditing;
     this.shared.get(`parties/${id}`).subscribe({
       next: ((response: any) => {
-        if (this.form) this.form.get('name').setValue(response?.party?.name || '');
+        if (this.form) this.form.get('name').setValue(response?.nombre_partido || '');
+        if (this.form) this.form.get('lema').setValue(response?.lema_partido || '');
       })
     })
     if (this.form) this.form.get('name')[this.isEditing ? 'enable': 'disable']();
+    if (this.form) this.form.get('lema')[this.isEditing ? 'enable': 'disable']();
   }
 
   onSubmit() {

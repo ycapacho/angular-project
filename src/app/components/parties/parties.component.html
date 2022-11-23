@@ -9,7 +9,7 @@
         </ng-template>
         <ng-template pTemplate="body" let-party>
             <tr>
-                <td>{{party.name}}</td>
+                <td>{{party.nombre_partido}}</td>
                 <td>
                     <button 
                     pButton 
@@ -17,7 +17,7 @@
                     class="p-button-info"
                     style="margin-right: 5px;" 
                     icon="pi pi-eye"
-                    (click)="showDialog(party._id, false)"></button>
+                    (click)="showDialog(party.nombre_partido, false)"></button>
                     <button 
                     pButton 
                     type="button" 
