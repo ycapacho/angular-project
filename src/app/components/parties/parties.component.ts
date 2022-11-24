@@ -57,7 +57,7 @@ export class PartiesComponent implements OnInit {
     ref.onClose.subscribe((response: any) => {
       if (response) {
         Swal.fire({
-          title: `Ahora el partido político se llame ${response?.name || '--'}`,
+          title: `${response || '--'}`,
           showCancelButton: false,
           confirmButtonText: 'Aceptar'
         });
