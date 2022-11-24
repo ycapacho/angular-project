@@ -57,7 +57,7 @@ export class PartiesComponent implements OnInit {
     ref.onClose.subscribe((response: any) => {
       if (response) {
         Swal.fire({
-          title: `${response || '--'}`,
+          title: `${response.message || '--'}`,
           showCancelButton: false,
           confirmButtonText: 'Aceptar'
         });

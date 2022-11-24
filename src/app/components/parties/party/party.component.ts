@@ -42,7 +42,6 @@ export class PartyComponent implements OnInit {
     const id = this.config.data.id;
     this.shared.put(`parties/${id}`, this.form.value).subscribe({
       next: ((response: any) => {
-        debugger;
         this.ref.close(response);
       })
     })
