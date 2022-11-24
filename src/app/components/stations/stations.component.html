@@ -1,1 +1,42 @@
-<p>stations works!</p>
+<div class="mt-5">
+  <h1>Mesas</h1>
+  <p-table [value]="stations" [paginator]="true" [rows]="5">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Numero de Mesa</th>
+              <th>Numero de Cedulas</th>
+                <th>Acción</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-station>
+          <tr>
+              <td>{{station.Nmesa}}</td>
+              <td>{{station.Ncedulas}}</td>
+              <td>
+                  <button 
+                  pButton 
+                  type="button" 
+                  class="p-button-info"
+                  style="margin-right: 5px;" 
+                  icon="pi pi-eye"
+                  (click)="showDialog(station.Nmesa, false)"></button>
+                  <button 
+                  pButton 
+                  type="button" 
+                  class="p-button-primary"
+                  style="margin-right: 5px;" 
+                  icon="pi pi-file-edit"
+                  (click)="showDialog(station.Nmesa, true)"></button>
+                  <button 
+                  pButton 
+                  type="button" 
+                  class="p-button-secondary" 
+                  icon="pi pi-trash"
+                  (click)="delete(station.Nmesa)"></button>
+              </td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>
+
+

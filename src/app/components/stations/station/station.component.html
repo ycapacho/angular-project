@@ -1,0 +1,37 @@
+<div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+          <div class="field">
+              <label class="block"># Mesa</label>
+              <div>
+                  <input type="text"
+                  pInputText 
+                  placeholder="# Mesa"
+                  formControlName="Nmesa"/>
+              </div>
+              <label class="block">Numero de Cedulas</label>
+              <div>
+                  <input type="text"
+                  pInputText 
+                  placeholder="numero de cedulas"
+                  formControlName="Ncedulas"/>
+              </div>               
+          </div>
+      </div>
+      <div style="text-align: right;">
+          <p-button 
+          *ngIf="isEditing"
+          label="Guardar cambios"
+          [disabled]="form.invalid"
+          type="submit"
+          class="mr5"
+          ></p-button>
+          <p-button 
+          label="Cerrar"
+          type="button"
+          (click)="close()"
+          ></p-button>
+      </div>
+  </form>
+</div>
+

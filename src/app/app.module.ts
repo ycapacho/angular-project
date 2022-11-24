@@ -32,6 +32,7 @@ import { CandidateComponent } from './components/candidates/candidate/candidate.
 import { NewCandidateComponent } from './components/candidates/new-candidate/new-candidate.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { ChartModule } from 'primeng/chart';
+import { StationComponent } from './components/stations/station/station.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ChartModule } from 'primeng/chart';
     WelcomeComponent,
     CandidatesComponent,
     CandidateComponent,
-    NewCandidateComponent
+    NewCandidateComponent,
+    StationComponent
   ],
   imports: [
     BrowserModule,
