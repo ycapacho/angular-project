@@ -1,0 +1,50 @@
+<div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+          <div class="field">
+              <label class="block">Nombres</label>
+              <div>
+                  <input type="text"
+                  pInputText 
+                  placeholder="nombres"
+                  formControlName="nameCandidato"/>
+              </div>
+              <label class="block">Apellidos</label>
+              <div>
+                  <input type="text"
+                  pInputText 
+                  placeholder="apellidos"
+                  formControlName="apellidoCandidato"/>
+              </div>
+              <div>
+                <label class="block">Cedula</label>
+                <input type="text"
+                pInputText 
+                placeholder="# de cedula"
+                formControlName="numberCedula"/>
+              </div>
+              <div>
+                <label class="block">Resolución</label>
+                <input type="text"
+                pInputText 
+                placeholder="# de Resolución"
+                formControlName="numberResolucion"/>
+              </div>               
+          </div>
+      </div>
+      <div style="text-align: right;">
+          <p-button 
+          *ngIf="isEditing"
+          label="Guardar cambios"
+          [disabled]="form.invalid"
+          type="submit"
+          class="mr5"
+          ></p-button>
+          <p-button 
+          label="Cerrar"
+          type="button"
+          (click)="close()"
+          ></p-button>
+      </div>
+  </form>
+</div>

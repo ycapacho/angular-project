@@ -28,6 +28,7 @@ import { ReportsComponent } from './components/reports/reports.component';
 import { StationsComponent } from './components/stations/stations.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { CandidatesComponent } from './components/candidates/candidates.component';
+import { CandidateComponent } from './components/candidates/candidate/candidate.component';
 import { NewCandidateComponent } from './components/candidates/new-candidate/new-candidate.component';
 import { DropdownModule } from 'primeng/dropdown';
 
@@ -45,6 +46,7 @@ import { DropdownModule } from 'primeng/dropdown';
     StationsComponent,
     WelcomeComponent,
     CandidatesComponent,
+    CandidateComponent,
     NewCandidateComponent
   ],
   imports: [
@@ -65,6 +67,7 @@ import { DropdownModule } from 'primeng/dropdown';
     DropdownModule
   ],
   entryComponents: [
+    CandidateComponent,
     PartyComponent,
     NewCandidateComponent
 ],

@@ -38,7 +38,6 @@ export class PartiesComponent implements OnInit {
       confirmButtonText: 'Borrar',
     }).then((result) => {
       if (result.isConfirmed) {
-        // Borrar partido
         console.log(id);
       }
     })
