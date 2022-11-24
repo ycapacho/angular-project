@@ -31,6 +31,7 @@ import { CandidatesComponent } from './components/candidates/candidates.componen
 import { CandidateComponent } from './components/candidates/candidate/candidate.component';
 import { NewCandidateComponent } from './components/candidates/new-candidate/new-candidate.component';
 import { DropdownModule } from 'primeng/dropdown';
+import { ChartModule } from 'primeng/chart';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { DropdownModule } from 'primeng/dropdown';
     DialogModule,
     DynamicDialogModule,
     MenubarModule,
-    DropdownModule
+    DropdownModule,
+    ChartModule
   ],
   entryComponents: [
     CandidateComponent,

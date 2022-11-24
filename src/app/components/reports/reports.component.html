@@ -26,4 +26,7 @@
       label="Por Mesa" 
       class="p-button-outlined p-button-danger"
       (click)="orderBy('station')"></button>
+      <hr>
+    <p-chart type="bar" [data]="data" *ngIf="data"></p-chart>
   </div> 
+  
