@@ -72,7 +72,7 @@ export class CandidatesComponent implements OnInit {
     const ref = this.dialogService.open(NewCandidateComponent, {
       header: 'Crear candidato',
       width: '70%',
-      height: '50%'
+      height: '70%'
     });
 
     // acción una vez se cree un nuevo candidato

@@ -27,7 +27,7 @@ export class NewCandidateComponent implements OnInit {
     });
     this.shared.get('parties').subscribe({
       next: ((response: any) => {
-        this.parties = response.parties;
+        this.parties = response;
         console.log(this.parties);
       })
     });
@@ -36,15 +36,15 @@ export class NewCandidateComponent implements OnInit {
   create() {
     const data = {
       ...this.form.value,
-      party: {
-        id: this.form.value.party._id
-      }
+      id_partido: this.form.value.party["_id"]["$oid"]
     };
-    this.shared.post('candidates', data).subscribe({
+    delete data.party;
+    console.log(data);
+    /* this.shared.post('candidates', data).subscribe({
       next: ((response: any) => {
         this.ref.close(response);
       })
-    })
+    })*/
   }
 
   close() {
