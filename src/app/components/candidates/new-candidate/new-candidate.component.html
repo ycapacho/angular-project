@@ -6,8 +6,8 @@
                 <div>
                     <p-dropdown 
                     [filter]="true"
-                    [options]="parties" 
-                    formControlName="party" 
+                    [options]="parties"
+                    formControlName="partido" 
                     placeholder="Seleccione partido político"
                     optionLabel="nombre_partido"></p-dropdown>
                 </div>
@@ -19,8 +19,19 @@
                 <div>
                     <input type="text"
                     pInputText 
-                    placeholder="Nombre del candidato"
-                    formControlName="name"/>
+                    placeholder="nombres"
+                    formControlName="nameCandidato"/>
+                </div>                
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="field">
+                <label class="block">Apellido del candidato</label>
+                <div>
+                    <input type="text"
+                    pInputText 
+                    placeholder="apellidos"
+                    formControlName="apellidoCandidato"/>
                 </div>                
             </div>
         </div>
@@ -31,19 +42,29 @@
                     <input type="text"
                     pInputText 
                     placeholder="Identificacion del candidato"
-                    formControlName="identification"/>
+                    formControlName="numberCedula"/>
+                </div>                
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="field">
+                <label class="block"># Resolución</label>
+                <div>
+                    <input type="text"
+                    pInputText 
+                    placeholder="Numero Resolución"
+                    formControlName="numberResolucion"/>
                 </div>                
             </div>
         </div>
         <div style="text-align: right;">
             <p-button 
-            label="Crear candidato"
-            [disabled]="form.invalid"
+            label="Create"
             type="submit"
             class="mr5"
             ></p-button>
-            <p-button 
-            label="Cerrar"
+            <p-button
+            label="Close"
             type="button"
             (click)="close()"
             ></p-button>

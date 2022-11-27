@@ -21,9 +21,11 @@ export class NewCandidateComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: [null, Validators.required],
-      identification: [null, Validators.required],
-      party: [null, Validators.required],
+      nameCandidato: [null, Validators.required],
+      apellidoCandidato: [null, Validators.required],
+      numberCedula: [null, Validators.required],
+      partido: [null, Validators.required],
+      numberResolucion: [null, Validators.required]
     });
     this.shared.get('parties').subscribe({
       next: ((response: any) => {
@@ -36,15 +38,14 @@ export class NewCandidateComponent implements OnInit {
   create() {
     const data = {
       ...this.form.value,
-      id_partido: this.form.value.party["_id"]["$oid"]
+      id_partido: this.form.value.partido._id.$oid
     };
-    delete data.party;
     console.log(data);
-    /* this.shared.post('candidates', data).subscribe({
+    this.shared.post('candidates', data).subscribe({
       next: ((response: any) => {
         this.ref.close(response);
       })
-    })*/
+    })
   }
 
   close() {
