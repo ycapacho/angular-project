@@ -19,6 +19,10 @@ export class SigninComponent implements OnInit {
   form: FormGroup;
 
   ngOnInit(): void {
+    const loggedin = this.readLocalStorageSession();
+    if (loggedin == "true") {
+      this.router.navigate(['/']);
+    }
     this.form = this.fb.group({
       username: [null, Validators.required],
       password: [null, Validators.required]
@@ -26,12 +30,34 @@ export class SigninComponent implements OnInit {
   }
 
   login() {
+    if (this.readLocalStorageSession() == "true") {
+      debugger
+      this.router.navigate(['/']);
+    }else{
+      debugger
     this.auth.login(this.form.value).subscribe({
       next: (() => {
+        this.saveSession("true");
         this.router.navigate(['/']);
       }),
       error: (e) => console.log(e)
     })
   }
+  }
 
+  readLocalStorageSession() {
+    debugger
+    return localStorage.getItem('loggedin');
+  }
+
+  saveSession(value) {
+    if (localStorage) {
+      try {
+        localStorage.setItem('user', this.form.value.username);
+        localStorage.setItem('loggedin', value);
+      } catch (e) {
+        console.log('Failed to save session info');
+      }
+    }
+  }
 }
