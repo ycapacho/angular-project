@@ -31,10 +31,8 @@ export class SigninComponent implements OnInit {
 
   login() {
     if (this.readLocalStorageSession() == "true") {
-      debugger
       this.router.navigate(['/']);
     }else{
-      debugger
     this.auth.login(this.form.value).subscribe({
       next: (() => {
         this.saveSession("true");
@@ -46,7 +44,6 @@ export class SigninComponent implements OnInit {
   }
 
   readLocalStorageSession() {
-    debugger
     return localStorage.getItem('loggedin');
   }
 
@@ -54,6 +51,7 @@ export class SigninComponent implements OnInit {
     if (localStorage) {
       try {
         localStorage.setItem('user', this.form.value.username);
+        localStorage.setItem('expirationDate', '2023-01-01');
         localStorage.setItem('loggedin', value);
       } catch (e) {
         console.log('Failed to save session info');

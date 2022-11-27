@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DialogService } from 'primeng/dynamicdialog';
 import { SharedService } from 'src/app/services/shared.service';
 import { PartyComponent } from './party/party.component';
+import { NewPartyComponent } from './new-party/new-party.component';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -67,5 +68,24 @@ export class PartiesComponent implements OnInit {
       }
     });
   }
+  
+  create() {
+    const ref = this.dialogService.open(NewPartyComponent, {
+      header: 'Crear partido',
+      width: '70%',
+      height: '70%'
+    });
 
+    ref.onClose.subscribe((response: any) => {
+      if (response) {
+        Swal.fire({
+          title: `Partido creado`,
+          text: `${response.message}`,
+          showCancelButton: false,
+          confirmButtonText: 'Aceptar'
+        });
+        this.parties.push(response.party);
+      }
+    })
+  }
 }

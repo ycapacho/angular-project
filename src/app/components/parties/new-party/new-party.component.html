@@ -1,1 +1,39 @@
-<p>new-party works!</p>
+<div>
+  <form [formGroup]="form" (ngSubmit)="create()">
+      <div class="mb-3">
+          <div class="field">
+              <label class="block">Nombre del Partido</label>
+              <div>
+                  <input type="text"
+                  pInputText 
+                  placeholder="nombre partido"
+                  formControlName="nombre_partido"/>
+              </div>                
+          </div>
+      </div>
+      <div class="mb-3">
+          <div class="field">
+              <label class="block">Lema</label>
+              <div>
+                  <input type="text"
+                  pInputText 
+                  placeholder="lema"
+                  formControlName="lema_partido"/>
+              </div>                
+          </div>
+      </div>
+      <div style="text-align: right;">
+          <p-button 
+          label="Create"
+          type="submit"
+          class="mr5"
+          ></p-button>
+          <p-button
+          label="Close"
+          type="button"
+          (click)="close()"
+          ></p-button>
+      </div>
+  </form>
+</div>
+

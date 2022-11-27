@@ -1,5 +1,15 @@
 <div class="mt-5">
-    <h1>Partidos políticos</h1>
+    <div style="position: relative;">
+        <h1>Partidos Politicos</h1>
+        <button 
+        pButton 
+        type="button" 
+        class="p-button-primary create-button"
+        label="Crear"
+        icon="pi pi-user-plus"
+        (click)="create()"
+        ></button>
+    </div>
     <p-table [value]="parties" [paginator]="true" [rows]="5">
         <ng-template pTemplate="header">
             <tr>
