@@ -19,9 +19,9 @@ export class ReportsComponent implements OnInit {
   param = "party"; // party || candidate
 
   ngOnInit(): void {
-    this.shared.get('votes').subscribe({
+    this.shared.get('reports').subscribe({
       next: ((response: any) => {
-        this.votes = response.votes;
+        this.votes = response;
         this.orderBy();
       })
     });
@@ -30,16 +30,16 @@ export class ReportsComponent implements OnInit {
   orderBy(param: string = "party") {
     const data: any = {
       labels:[
-        `Total de votaciones ${param == "candidate" ? "(Por Candidato)":
-        (param == "station" ? "(Por mesa de votación)": "(Por partido)")}`
+        `Total de votaciones ${param == "candidato" ? "(Por Candidato)":
+        (param == "id_mesa" ? "(Por mesa de votación)": "(Por partido)")}`
       ],
       datasets: []
     };
     const items: any = {};
     let cont = 0;
     for (let i of this.votes) {
-      const attr = param == "candidate" ? i.candidate.name : 
-      (param == "station" ? i.station.name : i.candidate.party.name);
+      const attr = param == "candidato" ? i.candidato.nameCandidato:
+      (param == "id_mesa" ? i.id_mesa : i.partido);
       if (!items[attr]) {
         cont = 1;
         items[attr] = {
