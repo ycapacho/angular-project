@@ -1,0 +1,38 @@
+<div>
+  <form [formGroup]="form" (ngSubmit)="create()">
+      <div class="mb-3">
+          <div class="field">
+              <label class="block"># de Mesa</label>
+              <div>
+                  <input type="text"
+                  pInputText 
+                  placeholder="nombres"
+                  formControlName="Nmesa"/>
+              </div>                
+          </div>
+      </div>
+      <div class="mb-3">
+          <div class="field">
+              <label class="block"># de Cedulas</label>
+              <div>
+                  <input type="text"
+                  pInputText 
+                  placeholder="apellidos"
+                  formControlName="Ncedulas"/>
+              </div>                
+          </div>
+      </div>
+      <div style="text-align: right;">
+          <p-button 
+          label="Create"
+          type="submit"
+          class="mr5"
+          ></p-button>
+          <p-button
+          label="Close"
+          type="button"
+          (click)="close()"
+          ></p-button>
+      </div>
+  </form>
+</div>

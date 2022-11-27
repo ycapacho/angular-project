@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService } from 'primeng/dynamicdialog';
 import { SharedService } from 'src/app/services/shared.service';
+import { NewStationComponent } from './new-station/new-station.component';
 import { StationComponent } from './station/station.component';
 import Swal from 'sweetalert2';
 
@@ -68,4 +69,23 @@ export class StationsComponent implements OnInit {
     });
   }
 
+  create() {
+    const ref = this.dialogService.open(NewStationComponent, {
+      header: 'Crear Mesa',
+      width: '70%',
+      height: '70%'
+    });
+
+    ref.onClose.subscribe((response: any) => {
+      if (response) {
+        Swal.fire({
+          title: `Mesa creada`,
+          text: `${response.message}`,
+          showCancelButton: false,
+          confirmButtonText: 'Aceptar'
+        });
+        this.stations.push(response.station);
+      }
+    })
+  }
 }

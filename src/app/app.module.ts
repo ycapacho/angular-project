@@ -33,6 +33,9 @@ import { NewCandidateComponent } from './components/candidates/new-candidate/new
 import { DropdownModule } from 'primeng/dropdown';
 import { ChartModule } from 'primeng/chart';
 import { StationComponent } from './components/stations/station/station.component';
+import { NewStationComponent } from './components/stations/new-station/new-station.component';
+import { NewUserComponent } from './components/users/new-user/new-user.component';
+import { NewPartyComponent } from './components/parties/new-party/new-party.component';
 
 
 @NgModule({
@@ -50,7 +53,10 @@ import { StationComponent } from './components/stations/station/station.componen
     CandidatesComponent,
     CandidateComponent,
     NewCandidateComponent,
-    StationComponent
+    StationComponent,
+    NewStationComponent,
+    NewUserComponent,
+    NewPartyComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +79,9 @@ import { StationComponent } from './components/stations/station/station.componen
   entryComponents: [
     CandidateComponent,
     PartyComponent,
-    NewCandidateComponent
+    NewCandidateComponent,
+    StationComponent,
+    NewStationComponent,
 ],
   providers: [
     AuthService,
